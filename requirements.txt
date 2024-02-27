@@ -1,0 +1,8 @@
+pytest
+requests
+python-dotenv
+faker
+pydantic
+pytest-assume
+pytest-xdist
+allure-pytest
