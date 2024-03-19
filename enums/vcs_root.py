@@ -1,0 +1,1 @@
+TEST_REPO_URL = "https://github.com/hkabash/team-city-workshop"
