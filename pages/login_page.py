@@ -35,10 +35,9 @@ class LoginPage(BasePage):
             self.actions.navigate(self.page_url)
             self.actions.wait_for_page_load()
 
+    @allure.step("Логин в приложение")
     def login(self, username, password):
         self.go_to_login_page()
         self.login_form.input_username(username)
         self.login_form.input_password(password)
         self.login_form.click_login_button()
-        self.page_url = (f'/favorite/projects?mode=builds')
-        self.actions.wait_for_url_change(self.page_url)

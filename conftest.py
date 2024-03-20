@@ -1,4 +1,3 @@
-import allure
 from api.api_manager import ApiManager
 import pytest
 import requests
@@ -23,7 +22,6 @@ def page(request):
 
 
 @pytest.fixture
-@allure.step("Логин в приложение")
 def login(page):
     login_page = LoginPage(page)
     login_page.login(username=AdminClass.USERNAME, password=AdminClass.PASSWORD)
