@@ -108,7 +108,6 @@ class TestCreateProjectE2E:
 
         with allure.step('Отправка запроса на получение информации о созданном проекте'):
             response = super_admin.api_manager.project_api.get_project_by_locator(project_name).text
-            print(f"created project response: {response}")
             created_project = ProjectResponseModel.model_validate_json(response)
             with pytest.assume:
                 assert created_project.id == project_id, \

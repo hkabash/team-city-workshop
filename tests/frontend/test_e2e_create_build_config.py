@@ -75,7 +75,6 @@ class TestCreateBuildConfigE2E:
 
         with allure.step("Отправка запроса на получение информации о созданной билд-конфигурации"):
             get_build_config_response = super_admin.api_manager.build_config_api.get_build_config_by_locator(build_config_id).text
-            print(f"build config response after create with project: {get_build_config_response}")
 
         with allure.step("Проверка соответствия параметров созданной билд конфигурации"):
             created_build_config = BuildConfigResponseModel.model_validate_json(get_build_config_response)
