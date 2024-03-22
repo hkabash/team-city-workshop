@@ -6,7 +6,27 @@ from data.build_run_data import BuildConfigRunData
 from data.project_data import ProjectData, ProjectResponseModel
 from data.user_data import UserData
 from entities.user import User, Role
-from resources.user_creds import SuperAdminCreds
+from enums.browser import BROWSERS
+from pages.favorite_projects_page import FavoriteProjectsPage
+from pages.login_page import LoginPage
+from resources.user_creds import SuperAdminCreds, AdminClass
+from utils.browser_setup import BrowserSetup
+
+
+@pytest.fixture(params=BROWSERS)
+def page(request):
+    playwright, browser, context, page = BrowserSetup.setup(browser_type=request.param)
+    yield page
+    test_name = request.node.name
+    BrowserSetup.teardown(context, browser, playwright, test_name)
+
+
+@pytest.fixture
+def login(page):
+    login_page = LoginPage(page)
+    login_page.login(username=AdminClass.USERNAME, password=AdminClass.PASSWORD)
+    home_page = FavoriteProjectsPage(page)
+    home_page.check_favorite_projects_url()
 
 
 @pytest.fixture

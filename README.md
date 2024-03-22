@@ -57,3 +57,14 @@ To view the report, use:
 
 `allure serve /path/to/results/directory`
 
+
+### Playwright configuration
+
+For running frontend tests we use Playwright.
+To install all needed browsers run in terminal:
+
+`playwright install`
+
+To look into logs from trace.zip file after passing playwright tests:
+1. Open https://trace.playwright.dev/
+2. Move trace.zip file there

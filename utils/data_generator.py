@@ -27,3 +27,7 @@ class DataGenerator:
         build_id = first_letter + rest_characters + "Build"
         return build_id
 
+    @staticmethod
+    def fake_invalid_id():
+        invalid_id = ''.join(faker_instance.random.choices(string.digits, k=5))
+        return invalid_id
