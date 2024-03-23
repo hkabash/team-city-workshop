@@ -22,6 +22,14 @@ def page(request):
 
 
 @pytest.fixture
+def browser_for_setup(request):
+    playwright, browser, context, page = BrowserSetup.setup()
+    yield page
+    test_name = request.node.name
+    BrowserSetup.teardown(context, browser, playwright, test_name)
+
+
+@pytest.fixture
 def login(page):
     login_page = LoginPage(page)
     login_page.login(username=AdminClass.USERNAME, password=AdminClass.PASSWORD)

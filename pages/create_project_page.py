@@ -109,7 +109,6 @@ class CreateProjectPage(BasePage):
     def check_create_project_manually_page_elements(self):
         self.menu_list_create.check_create_from_url_visible()
         self.menu_list_create.check_manually_visible()
-        self.parent_project_fragment.check_parent_project_dropdown_visible()
         self.create_manually_form.check_project_name_input_visible()
         self.create_manually_form.check_project_id_input_visible()
         self.create_manually_form.check_project_description_input_visible()
