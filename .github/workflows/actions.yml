@@ -87,4 +87,4 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest -v --alluredir=results --ignore=test/frontend/test_set_up.py
+          pytest -v --alluredir=results --ignore=test/frontend/test_setup.py
