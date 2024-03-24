@@ -71,7 +71,7 @@ class SetupPage(BasePage):
         self.agreement = Agreement(self.page)
         self.setup_user = SetupUser(self.page)
 
-    def setup(self, username=AdminClass.USERNAME, password=AdminClass.PASSWORD):
+    def setup(self, username="admin", password="admin"):
         self.actions.navigate(self.page_url)
         self.actions.wait_for_page_load()
         self.first_start_window.proceed_step()

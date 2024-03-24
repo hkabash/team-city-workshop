@@ -32,7 +32,7 @@ def browser_for_setup(request):
 @pytest.fixture
 def login(page):
     login_page = LoginPage(page)
-    login_page.login(username=AdminClass.USERNAME, password=AdminClass.PASSWORD)
+    login_page.login(username="admin", password="admin")
     home_page = FavoriteProjectsPage(page)
     home_page.check_favorite_projects_url()
     home_page.header.check_user_avatar_visible()
