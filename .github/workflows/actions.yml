@@ -72,7 +72,7 @@ jobs:
               echo "Token found in logs, extracting..."
               token=$(docker logs teamcity-server-instance 2>&1 | grep -oP 'Super user authentication token: \K[0-9]+')
               echo "Super user token: $token"
-              echo "SUPER_USER_TOKEN=$token" >> $GITHUB_ENV
+              echo "SUPER_ADMIN_TOKEN=$token" >> $GITHUB_ENV
               break
             else
               echo "Token not found, waiting..."
@@ -99,12 +99,12 @@ jobs:
           LATEST_RELEASE=$(wget -qO- "https://api.github.com/repos/allure-framework/allure2/releases/latest" | jq -r .tag_name)
           wget "https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/${LATEST_RELEASE}/allure-commandline-${LATEST_RELEASE}.tgz" -O allure.tgz
           sudo tar -zxvf allure.tgz -C /opt/
-          echo "export PATH=$PATH:/opt/allure-${LATEST_RELEASE}/bin" >> $GITHUB_ENV
+          sudo ln -s /opt/allure-${LATEST_RELEASE}/bin/allure /usr/local/bin/allure
 
       # Step to generate Allure report from results
       - name: Generate Allure Report
         if: always()
-        run: allure generate result -o allure-report --clean
+        run: /opt/allure-${LATEST_RELEASE}/bin/allure generate result -o allure-report --clean
 
       # Step to publish the Allure report as a GitHub Actions artifact
       - name: Publish Allure Report
