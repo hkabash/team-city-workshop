@@ -22,7 +22,6 @@ class FavoriteProjectsPage(BasePage):
     def click_new_project_from_dropdown(self, project_id):
         with allure.step(f"Для проекта c id '{project_id}' выбрать New project"):
             self.click_plus_icon_next_to_project(project_id)
-            self.actions.wait_for_selector(self.new_project_dropdown_item_selector)
             self.actions.click_button(self.new_project_dropdown_item_selector)
 
     @allure.step("Проверка URL страницы favorite projects")

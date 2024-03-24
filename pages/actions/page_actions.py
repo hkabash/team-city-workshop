@@ -29,6 +29,7 @@ class PageActions:
             self.page.wait_for_load_state('load')
 
     def click_button(self, selector):
+        self.wait_for_selector(selector)
         with allure.step(f"Клик по элементу: {selector}"):
             self.page.click(selector)
 
