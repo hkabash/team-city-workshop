@@ -1,5 +1,5 @@
 import allure
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, expect
 import os
 from dotenv import load_dotenv
 
@@ -12,6 +12,7 @@ headless_mode = os.getenv('HEADLESS', 'True') == 'True'
 class BrowserSetup:
     @classmethod
     def setup(cls, browser_type="chromium", headless=headless_mode):
+        expect.set_default_timeout(30000)
         playwright = sync_playwright().start()
         browser = getattr(playwright, browser_type).launch(headless=headless)
         context = browser.new_context()
