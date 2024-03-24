@@ -12,10 +12,10 @@ headless_mode = os.getenv('HEADLESS', 'True') == 'True'
 class BrowserSetup:
     @classmethod
     def setup(cls, browser_type="chromium", headless=headless_mode):
-        expect.set_default_timeout(30000)
         playwright = sync_playwright().start()
         browser = getattr(playwright, browser_type).launch(headless=headless)
         context = browser.new_context()
+        context.set_default_timeout(30000)
         context.tracing.start(screenshots=True, snapshots=True, sources=True)
         page = context.new_page()
         page.set_viewport_size({"width": browser_width, "height": browser_height})
