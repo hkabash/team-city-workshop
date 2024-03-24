@@ -91,9 +91,15 @@ jobs:
 
       - name: Install Allure Commandline
         if: always()
+#        run: |
+#          sudo apt-get update
+#          sudo apt-get install -y allure
         run: |
-          sudo apt-get update
-          sudo apt-get install -y allure
+          sudo apt-get install -y wget jq
+          LATEST_RELEASE=$(wget -qO- "https://api.github.com/repos/allure-framework/allure2/releases/latest" | jq -r .tag_name)
+          wget "https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/${LATEST_RELEASE}/allure-commandline-${LATEST_RELEASE}.tgz" -O allure.tgz
+          sudo tar -zxvf allure.tgz -C /opt/
+          echo "export PATH=$PATH:/opt/allure-${LATEST_RELEASE}/bin" >> $GITHUB_ENV
 
       # Step to generate Allure report from results
       - name: Generate Allure Report
