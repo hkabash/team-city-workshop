@@ -1,0 +1,83 @@
+2024-03-24 14:08:59 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_not_created_with_unavailable_role[PROJECT_VIEWER] (setup)[0m
+curl -X GET 'http://localhost:8111/authenticationTest.html?csrf' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Authorization: Basic OjkwNjI2MjYzODQwOTM5MTM1ODc=' \
+-d ''
+2024-03-24 14:08:59 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_not_created_with_unavailable_role[PROJECT_VIEWER][0m
+curl -X POST 'http://localhost:8111/app/rest/users' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: a6d64a10-1859-44ba-9fbd-885e4d371494' \
+-H 'Cookie: RecentLogin=; TCSESSIONID=4333A69C65A15B2CF2F3C3F1B57CC0D2' \
+-H 'Content-Length: 152' \
+-H 'Authorization: Basic OjkwNjI2MjYzODQwOTM5MTM1ODc=' \
+-d '{"username": "provide", "password": "SVf1EO7JF9gProject", "email": "example@email.com", "roles": {"role": [{"roleId": "PROJECT_VIEWER", "scope": "g"}]}}' 
+
+2024-03-24 14:08:59 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_not_created_with_unavailable_role[PROJECT_VIEWER][0m
+curl -X GET 'http://localhost:8111/authenticationTest.html?csrf' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Authorization: Basic cHJvdmlkZTpTVmYxRU83SkY5Z1Byb2plY3Q=' \
+-d '' 
+
+2024-03-24 14:08:59 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_not_created_with_unavailable_role[PROJECT_VIEWER][0m
+curl -X POST 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: b656d0b7-fec5-4b52-962c-df2f3871899a' \
+-H 'Cookie: RecentLogin=; TCSESSIONID=11BE1BEECBE4AB6D1746A0BD92A242A9' \
+-H 'Content-Length: 119' \
+-H 'Authorization: Basic cHJvdmlkZTpTVmYxRU83SkY5Z1Byb2plY3Q=' \
+-d '{"parentProject": {"locator": "_Root"}, "name": "check", "id": "u8AO325VIDmProject", "copyAllAssociatedSettings": true}' 
+
+2024-03-24 14:08:59 INFO 	RESPONSE:
+STATUS_CODE: [31m403[0m
+DATA: [31mResponding with error, status code: 403 (Forbidden).
+Details: jetbrains.buildServer.serverSide.auth.AccessDeniedException: You do not have "Create subproject" permission in project with internal id: _Root
+Access denied. Check the user has enough permissions to perform the operation.[0m
+2024-03-24 14:08:59 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_not_created_with_unavailable_role[PROJECT_VIEWER][0m
+curl -X GET 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: b656d0b7-fec5-4b52-962c-df2f3871899a' \
+-H 'Cookie: TCSESSIONID=11BE1BEECBE4AB6D1746A0BD92A242A9' \
+-H 'Authorization: Basic cHJvdmlkZTpTVmYxRU83SkY5Z1Byb2plY3Q=' \
+-d ''
+2024-03-24 14:08:59 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_not_created_with_unavailable_role[PROJECT_VIEWER] (teardown)[0m
+curl -X DELETE 'http://localhost:8111/app/rest/users/provide' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: a6d64a10-1859-44ba-9fbd-885e4d371494' \
+-H 'Cookie: TCSESSIONID=4333A69C65A15B2CF2F3C3F1B57CC0D2' \
+-H 'Content-Length: 0' \
+-H 'Authorization: Basic OjkwNjI2MjYzODQwOTM5MTM1ODc=' \
+-d '' 
+
+2024-03-24 14:08:59 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_not_created_with_unavailable_role[PROJECT_VIEWER] (teardown)[0m
+curl -X GET 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: a6d64a10-1859-44ba-9fbd-885e4d371494' \
+-H 'Cookie: TCSESSIONID=4333A69C65A15B2CF2F3C3F1B57CC0D2' \
+-H 'Authorization: Basic OjkwNjI2MjYzODQwOTM5MTM1ODc=' \
+-d ''
