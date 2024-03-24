@@ -89,6 +89,11 @@ jobs:
         run: |
           pytest -v --alluredir=result --ignore=tests/frontend/test_setup.py
 
+      - name: Install Allure Commandline
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y allure
+
       # Step to generate Allure report from results
       - name: Generate Allure Report
         if: always()
