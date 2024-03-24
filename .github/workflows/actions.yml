@@ -88,7 +88,6 @@ jobs:
 
       - name: Run Tests
         run: |
-#          pytest -v --alluredir=result --ignore=tests/frontend/test_setup.py
           pytest -v --alluredir=result tests/frontend/test_e2e_create_project.py tests/backend/test_run_build.py
 
       - name: Get Allure history
