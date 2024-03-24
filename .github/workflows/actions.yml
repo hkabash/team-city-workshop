@@ -62,7 +62,7 @@ jobs:
       - name: Run Set Up Test
         run: |
           playwright install
-          pytest -v test/frontend/test_set_up.py 
+          pytest -v test/frontend/test_setup.py 
 
       - name: Retrieve Super User Token
         run: |
