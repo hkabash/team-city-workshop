@@ -1,0 +1,74 @@
+2024-03-24 13:17:16 INFO [32mpytest tests/frontend/test_e2e_create_build_config.py::TestCreateBuildConfigE2E::test_create_build_config[firefox] (setup)[0m
+curl -X GET 'http://localhost:8111/authenticationTest.html?csrf' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Authorization: Basic OjM5OTYwNDc4MjI5NDI3MzYzNjQ=' \
+-d '' 
+
+2024-03-24 13:17:16 INFO [32mpytest tests/frontend/test_e2e_create_build_config.py::TestCreateBuildConfigE2E::test_create_build_config[firefox] (setup)[0m
+curl -X POST 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 525afe49-b17f-4eef-85a0-5100f1cf951c' \
+-H 'Cookie: RecentLogin=; TCSESSIONID=B50DC33E52B047777DCC5BA19672EB2A' \
+-H 'Content-Length: 118' \
+-H 'Authorization: Basic OjM5OTYwNDc4MjI5NDI3MzYzNjQ=' \
+-d '{"parentProject": {"locator": "_Root"}, "name": "when", "id": "FiCeYHUPxuPProject", "copyAllAssociatedSettings": true}'
+2024-03-24 13:17:51 INFO [32mpytest tests/frontend/test_e2e_create_build_config.py::TestCreateBuildConfigE2E::test_create_build_config[firefox][0m
+curl -X GET 'http://localhost:8111/app/rest/buildTypes/o7LQXQQHTkYBuild' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 525afe49-b17f-4eef-85a0-5100f1cf951c' \
+-H 'Cookie: TCSESSIONID=B50DC33E52B047777DCC5BA19672EB2A' \
+-H 'Authorization: Basic OjM5OTYwNDc4MjI5NDI3MzYzNjQ=' \
+-d ''
+2024-03-24 13:17:58 INFO [32mpytest tests/frontend/test_e2e_create_build_config.py::TestCreateBuildConfigE2E::test_create_build_config[firefox] (teardown)[0m
+curl -X GET 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 525afe49-b17f-4eef-85a0-5100f1cf951c' \
+-H 'Cookie: TCSESSIONID=B50DC33E52B047777DCC5BA19672EB2A' \
+-H 'Authorization: Basic OjM5OTYwNDc4MjI5NDI3MzYzNjQ=' \
+-d '' 
+
+2024-03-24 13:17:58 INFO [32mpytest tests/frontend/test_e2e_create_build_config.py::TestCreateBuildConfigE2E::test_create_build_config[firefox] (teardown)[0m
+curl -X DELETE 'http://localhost:8111/app/rest/projects/id:FiCeYHUPxuPProject' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 525afe49-b17f-4eef-85a0-5100f1cf951c' \
+-H 'Cookie: TCSESSIONID=B50DC33E52B047777DCC5BA19672EB2A' \
+-H 'Content-Length: 0' \
+-H 'Authorization: Basic OjM5OTYwNDc4MjI5NDI3MzYzNjQ=' \
+-d '' 
+
+2024-03-24 13:17:58 INFO [32mpytest tests/frontend/test_e2e_create_build_config.py::TestCreateBuildConfigE2E::test_create_build_config[firefox] (teardown)[0m
+curl -X GET 'http://localhost:8111/app/rest/projects/FiCeYHUPxuPProject' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 525afe49-b17f-4eef-85a0-5100f1cf951c' \
+-H 'Cookie: TCSESSIONID=B50DC33E52B047777DCC5BA19672EB2A' \
+-H 'Authorization: Basic OjM5OTYwNDc4MjI5NDI3MzYzNjQ=' \
+-d '' 
+
+2024-03-24 13:17:58 INFO 	RESPONSE:
+STATUS_CODE: [31m404[0m
+DATA: [31mResponding with error, status code: 404 (Not Found).
+Details: jetbrains.buildServer.server.rest.errors.NotFoundException: No project found by name or internal/external id 'FiCeYHUPxuPProject'.
+Could not find the entity requested. Check the reference is correct and the user has permissions to access the entity.[0m
