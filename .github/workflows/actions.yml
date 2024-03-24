@@ -90,8 +90,8 @@ jobs:
           pytest -v --alluredir=result --ignore=tests/frontend/test_setup.py
 
       - name: Install Allure Commandline
+        if: always()
         run: |
-          if: always()
           sudo apt-get update
           sudo apt-get install -y allure
 
