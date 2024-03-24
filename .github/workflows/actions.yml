@@ -62,7 +62,7 @@ jobs:
       - name: Run Set Up Test
         run: |
           playwright install
-          pytest -v tests/frontend/test_setup.py 
+          pytest -v --alluredir=result tests/frontend/test_setup.py 
 
       - name: Retrieve Super User Token
         run: |
@@ -88,3 +88,16 @@ jobs:
       - name: Run Tests
         run: |
           pytest -v --alluredir=result --ignore=tests/frontend/test_setup.py
+
+      # Step to generate Allure report from results
+      - name: Generate Allure Report
+        if: always()
+        run: allure generate result -o allure-report --clean
+
+      # Step to publish the Allure report as a GitHub Actions artifact
+      - name: Publish Allure Report
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: allure-report
+          path: allure-report

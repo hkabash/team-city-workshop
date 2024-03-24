@@ -14,6 +14,8 @@ class AgentsPage(BasePage):
     @allure.step("Переход на страницу агентов, клик на неавторизованного агента в левой панели и авторизация его")
     def authorize_agent(self):
         self.actions.navigate(self.page_url)
+        self.actions.wait_for_url_change(self.page_url)
+        self.actions.wait_for_selector(self.unauthorized_agents_selector)
         self.actions.click_button(self.unauthorized_agents_selector)
         self.actions.click_button(self.authorize_button_selector)
         self.actions.click_button(self.authorize_button_at_popup_selector)
