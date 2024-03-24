@@ -54,10 +54,11 @@ class TestCreateProjectE2E:
     @allure.feature('Управление проектами')
     @allure.story('Создание проекта')
     @allure.severity(allure.severity_level.NORMAL)
-    @allure.title('Проверка перехода на страницу создания проекта при клике на New Project на Home Page')
+    @allure.title('Проверка перехода на страницу создания проекта при клике на Create Project на Home Page, '
+                  'если нет проектов')
     def test_redirect_to_create_project_page_on_new_project_click(self, page, login):
         home_page = FavoriteProjectsPage(page)
-        home_page.click_new_project_button()
+        home_page.click_create_project_button()
 
         create_project_page = CreateProjectPage(page)
         create_project_page.check_project_creation_page_url()

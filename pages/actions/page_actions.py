@@ -52,9 +52,9 @@ class PageActions:
         with allure.step(f"Ожидаем повяления селектора: {selector}"):
             self.page.wait_for_selector(selector, state='visible')
 
-    def wait_for_disappear_selector(self, selector):
-        with allure.step(f"Ожидаем исчезновения селектора: {selector}"):
-            self.page.wait_for_selector(selector, state='detached')
+    def wait_for_disappear_selector(self, selector, timeout=30000):
+        with allure.step(f"Ожидаем исчезновения селектора: {selector} в течение {timeout//1000} секунд"):
+            self.page.wait_for_selector(selector, state='detached', timeout=timeout)
 
     def assert_text_present_on_page(self, text):
         with allure.step(f"Проверка наличия текста '{text}' на странице"):
