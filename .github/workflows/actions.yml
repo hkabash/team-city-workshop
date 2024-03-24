@@ -23,6 +23,10 @@ jobs:
           mkdir -p ./logs
           sudo chown -R 1000:1000 ./logs
 
+      - name: Create Docker Network
+        run: |
+          docker network create teamcity-network
+
       - name: Run TeamCity Server Container
         run: |
           docker run -d --name teamcity-server-instance --network teamcity-network -v ${{ github.workspace }}/logs:/opt/teamcity/logs -p 8111:8111 jetbrains/teamcity-server
