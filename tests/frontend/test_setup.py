@@ -14,6 +14,6 @@ def test_setup(browser_for_setup):
         home_page = FavoriteProjectsPage(browser_for_setup)
         home_page.check_favorite_projects_url()
         home_page.header.check_user_avatar_visible()
-    # with allure.step("Авторизация агента"):
-    #     agents_page = AgentsPage(browser_for_setup)
-    #     agents_page.authorize_agent()
+    with allure.step("Авторизация агента"):
+        agents_page = AgentsPage(browser_for_setup)
+        agents_page.authorize_agent()
