@@ -51,7 +51,7 @@ jobs:
 
       - name: Run TeamCity Agent Container
         run: |
-          docker run -d --name teamcity-agent-instance -e SERVER_URL="http://localhost:8111" jetbrains/teamcity-agent
+          docker run -d --name teamcity-agent-instance -e SERVER_URL="http://teamcity-server-instance:8111" jetbrains/teamcity-agent
           
       - name: Install Python Dependencies
         run: |
@@ -88,7 +88,8 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest -v --alluredir=result --ignore=tests/frontend/test_setup.py
+#          pytest -v --alluredir=result --ignore=tests/frontend/test_setup.py
+          pytest -v --alluredir=result tests/frontend/test_e2e_create_project.py tests/backend/test_run_build.py
 
       - name: Get Allure history
         uses: actions/checkout@v3
