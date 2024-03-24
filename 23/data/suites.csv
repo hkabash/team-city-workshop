@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"broken","Sun Mar 24 13:55:09 GMT 2024","Sun Mar 24 13:55:09 GMT 2024","0","tests.frontend","test_setup","","","","Сетап Teamcity перед всеми тестами",""
