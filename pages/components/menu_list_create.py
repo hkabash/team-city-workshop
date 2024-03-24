@@ -14,6 +14,7 @@ class MenuListCreateFragment:
 
     @allure.step("Выбор создания проекта мануально")
     def click_create_manually(self):
+        self.actions.is_button_active(self.create_manually_selector)
         self.actions.click_button(self.create_manually_selector)
 
     @allure.step("Проверка активности кнопки создания проекта по URL")
