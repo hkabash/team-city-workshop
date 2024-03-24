@@ -89,27 +89,25 @@ jobs:
         run: |
           pytest -v --alluredir=result --ignore=tests/frontend/test_setup.py
 
-      - name: Install Allure Commandline
+      - name: Get Allure history
+        uses: actions/checkout@v3
         if: always()
-#        run: |
-#          sudo apt-get update
-#          sudo apt-get install -y allure
-        run: |
-          sudo apt-get install -y wget jq
-          LATEST_RELEASE=$(wget -qO- "https://api.github.com/repos/allure-framework/allure2/releases/latest" | jq -r .tag_name)
-          wget "https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/${LATEST_RELEASE}/allure-commandline-${LATEST_RELEASE}.tgz" -O allure.tgz
-          sudo tar -zxvf allure.tgz -C /opt/
-          sudo ln -s /opt/allure-${LATEST_RELEASE}/bin/allure /usr/local/bin/allure
-
-      # Step to generate Allure report from results
-      - name: Generate Allure Report
-        if: always()
-        run: /opt/allure-${LATEST_RELEASE}/bin/allure generate result -o allure-report --clean
-
-      # Step to publish the Allure report as a GitHub Actions artifact
-      - name: Publish Allure Report
-        if: always()
-        uses: actions/upload-artifact@v2
+        continue-on-error: true
         with:
-          name: allure-report
-          path: allure-report
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Allure Report action from marketplace
+        uses: simple-elf/allure-report-action@v1.7
+        if: always()
+        with:
+          allure_results: result
+          allure_history: allure-history
+
+      - name: Deploy report to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-history
