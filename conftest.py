@@ -35,6 +35,7 @@ def login(page):
     login_page.login(username=AdminClass.USERNAME, password=AdminClass.PASSWORD)
     home_page = FavoriteProjectsPage(page)
     home_page.check_favorite_projects_url()
+    home_page.header.check_user_avatar_visible()
 
 
 @pytest.fixture

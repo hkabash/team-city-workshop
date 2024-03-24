@@ -1,3 +1,5 @@
+import allure
+
 from pages.actions.page_actions import PageActions
 
 
@@ -8,6 +10,7 @@ class Header:
         self.logo_button = '.ring-header-logo'
         self.projects_button = 'a[title="Projects"] >> text="Projects"'
         self.add_project_button = 'a[title="Create subproject"][data-test-link-with-icon="add"]'
+        self.user_avatar_selector = '[data-test="avatar"]'
 
     def go_to_projects_throw_header_button(self):
         self.actions.is_button_active(self.projects_button)
@@ -18,3 +21,8 @@ class Header:
         self.actions.is_button_active(self.add_project_button)
         self.actions.click_button(self.add_project_button)
         self.actions.wait_for_page_load()
+
+    @allure.step("Проверка видимости элемента User Avatar")
+    def check_user_avatar_visible(self):
+        self.actions.is_element_visible(self.user_avatar_selector)
+
