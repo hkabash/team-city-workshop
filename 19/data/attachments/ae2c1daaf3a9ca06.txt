@@ -1,0 +1,19 @@
+2024-03-24 12:12:45 INFO [32mpytest tests/frontend/test_e2e_create_project.py::TestCreateProjectE2E::test_create_project_manually_via_url[chromium] (setup)[0m
+curl -X GET 'http://localhost:8111/authenticationTest.html?csrf' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Authorization: Basic OjM4MjQ4ODM1OTM5MjA5MDg4MDE=' \
+-d ''
+2024-03-24 12:13:26 INFO [32mpytest tests/frontend/test_e2e_create_project.py::TestCreateProjectE2E::test_create_project_manually_via_url[chromium] (teardown)[0m
+curl -X GET 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 931e14c8-11cb-4193-be04-5b58a9bc8dfd' \
+-H 'Cookie: TCSESSIONID=411DAE1CE8CFE3C3DE845EEA8DEE017D' \
+-H 'Authorization: Basic OjM4MjQ4ODM1OTM5MjA5MDg4MDE=' \
+-d ''
