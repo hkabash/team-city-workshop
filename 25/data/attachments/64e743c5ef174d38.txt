@@ -1,0 +1,74 @@
+2024-03-25 19:37:09 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_created_with_name_only (setup)[0m
+curl -X GET 'http://localhost:8111/authenticationTest.html?csrf' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Authorization: Basic Ojg3NzU3Mjg0Njg5NjI1MDg4MjE=' \
+-d ''
+2024-03-25 19:37:09 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_created_with_name_only[0m
+curl -X POST 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 677e7589-b94c-49f3-80d2-7d7a27dd026a' \
+-H 'Cookie: RecentLogin=; TCSESSIONID=41B60E43D6464D9F5BAC9868D8ACEBAD' \
+-H 'Content-Length: 19' \
+-H 'Authorization: Basic Ojg3NzU3Mjg0Njg5NjI1MDg4MjE=' \
+-d '{"name": "another"}' 
+
+2024-03-25 19:37:09 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_created_with_name_only[0m
+curl -X GET 'http://localhost:8111/app/rest/projects/another' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 677e7589-b94c-49f3-80d2-7d7a27dd026a' \
+-H 'Cookie: TCSESSIONID=41B60E43D6464D9F5BAC9868D8ACEBAD' \
+-H 'Authorization: Basic Ojg3NzU3Mjg0Njg5NjI1MDg4MjE=' \
+-d ''
+2024-03-25 19:37:09 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_created_with_name_only (teardown)[0m
+curl -X GET 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 677e7589-b94c-49f3-80d2-7d7a27dd026a' \
+-H 'Cookie: TCSESSIONID=41B60E43D6464D9F5BAC9868D8ACEBAD' \
+-H 'Authorization: Basic Ojg3NzU3Mjg0Njg5NjI1MDg4MjE=' \
+-d '' 
+
+2024-03-25 19:37:09 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_created_with_name_only (teardown)[0m
+curl -X DELETE 'http://localhost:8111/app/rest/projects/id:Another' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 677e7589-b94c-49f3-80d2-7d7a27dd026a' \
+-H 'Cookie: TCSESSIONID=41B60E43D6464D9F5BAC9868D8ACEBAD' \
+-H 'Content-Length: 0' \
+-H 'Authorization: Basic Ojg3NzU3Mjg0Njg5NjI1MDg4MjE=' \
+-d '' 
+
+2024-03-25 19:37:09 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_created_with_name_only (teardown)[0m
+curl -X GET 'http://localhost:8111/app/rest/projects/Another' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 677e7589-b94c-49f3-80d2-7d7a27dd026a' \
+-H 'Cookie: TCSESSIONID=41B60E43D6464D9F5BAC9868D8ACEBAD' \
+-H 'Authorization: Basic Ojg3NzU3Mjg0Njg5NjI1MDg4MjE=' \
+-d '' 
+
+2024-03-25 19:37:09 INFO 	RESPONSE:
+STATUS_CODE: [31m404[0m
+DATA: [31mResponding with error, status code: 404 (Not Found).
+Details: jetbrains.buildServer.server.rest.errors.NotFoundException: No project found by name or internal/external id 'Another'.
+Could not find the entity requested. Check the reference is correct and the user has permissions to access the entity.[0m

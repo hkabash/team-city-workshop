@@ -1,0 +1,92 @@
+2024-03-25 19:37:07 INFO [32mpytest tests/backend/test_create_build_config.py::TestBuildConfig::test_build_config_not_created_without_required_parameters[project] (setup)[0m
+curl -X GET 'http://localhost:8111/authenticationTest.html?csrf' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Authorization: Basic Ojg3NzU3Mjg0Njg5NjI1MDg4MjE=' \
+-d '' 
+
+2024-03-25 19:37:08 INFO [32mpytest tests/backend/test_create_build_config.py::TestBuildConfig::test_build_config_not_created_without_required_parameters[project] (setup)[0m
+curl -X POST 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 394cdba4-7401-44a1-9e74-fda3ac1c4a3d' \
+-H 'Cookie: RecentLogin=; TCSESSIONID=BCF3EA60F3C370F1116A5684088ED58F' \
+-H 'Content-Length: 121' \
+-H 'Authorization: Basic Ojg3NzU3Mjg0Njg5NjI1MDg4MjE=' \
+-d '{"parentProject": {"locator": "_Root"}, "name": "economy", "id": "k6a7k70qfKCProject", "copyAllAssociatedSettings": true}'
+2024-03-25 19:37:08 INFO [32mpytest tests/backend/test_create_build_config.py::TestBuildConfig::test_build_config_not_created_without_required_parameters[project][0m
+curl -X POST 'http://localhost:8111/app/rest/buildTypes' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 394cdba4-7401-44a1-9e74-fda3ac1c4a3d' \
+-H 'Cookie: TCSESSIONID=BCF3EA60F3C370F1116A5684088ED58F' \
+-H 'Content-Length: 316' \
+-H 'Authorization: Basic Ojg3NzU3Mjg0Njg5NjI1MDg4MjE=' \
+-d '{"id": "yiH3zLEGsm8Build", "name": "relationship", "steps": {"step": [{"name": "myCommandLineStep", "type": "simpleRunner", "properties": {"property": [{"name": "script.content", "value": "echo 'Hello World!'"}, {"name": "teamcity.step.mode", "value": "default"}, {"name": "use.custom.script", "value": "true"}]}}]}}' 
+
+2024-03-25 19:37:08 INFO 	RESPONSE:
+STATUS_CODE: [31m400[0m
+DATA: [31mResponding with error, status code: 400 (Bad Request).
+Details: jetbrains.buildServer.server.rest.errors.BadRequestException: Build type creation request should contain project node.
+Invalid request. Please check the request URL and data are correct.[0m
+2024-03-25 19:37:08 INFO [32mpytest tests/backend/test_create_build_config.py::TestBuildConfig::test_build_config_not_created_without_required_parameters[project][0m
+curl -X GET 'http://localhost:8111/app/rest/buildTypes' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 394cdba4-7401-44a1-9e74-fda3ac1c4a3d' \
+-H 'Cookie: TCSESSIONID=BCF3EA60F3C370F1116A5684088ED58F' \
+-H 'Authorization: Basic Ojg3NzU3Mjg0Njg5NjI1MDg4MjE=' \
+-d ''
+2024-03-25 19:37:08 INFO [32mpytest tests/backend/test_create_build_config.py::TestBuildConfig::test_build_config_not_created_without_required_parameters[project] (teardown)[0m
+curl -X GET 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 394cdba4-7401-44a1-9e74-fda3ac1c4a3d' \
+-H 'Cookie: TCSESSIONID=BCF3EA60F3C370F1116A5684088ED58F' \
+-H 'Authorization: Basic Ojg3NzU3Mjg0Njg5NjI1MDg4MjE=' \
+-d '' 
+
+2024-03-25 19:37:08 INFO [32mpytest tests/backend/test_create_build_config.py::TestBuildConfig::test_build_config_not_created_without_required_parameters[project] (teardown)[0m
+curl -X DELETE 'http://localhost:8111/app/rest/projects/id:k6a7k70qfKCProject' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 394cdba4-7401-44a1-9e74-fda3ac1c4a3d' \
+-H 'Cookie: TCSESSIONID=BCF3EA60F3C370F1116A5684088ED58F' \
+-H 'Content-Length: 0' \
+-H 'Authorization: Basic Ojg3NzU3Mjg0Njg5NjI1MDg4MjE=' \
+-d '' 
+
+2024-03-25 19:37:08 INFO [32mpytest tests/backend/test_create_build_config.py::TestBuildConfig::test_build_config_not_created_without_required_parameters[project] (teardown)[0m
+curl -X GET 'http://localhost:8111/app/rest/projects/k6a7k70qfKCProject' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 394cdba4-7401-44a1-9e74-fda3ac1c4a3d' \
+-H 'Cookie: TCSESSIONID=BCF3EA60F3C370F1116A5684088ED58F' \
+-H 'Authorization: Basic Ojg3NzU3Mjg0Njg5NjI1MDg4MjE=' \
+-d '' 
+
+2024-03-25 19:37:08 INFO 	RESPONSE:
+STATUS_CODE: [31m404[0m
+DATA: [31mResponding with error, status code: 404 (Not Found).
+Details: jetbrains.buildServer.server.rest.errors.NotFoundException: No project found by name or internal/external id 'k6a7k70qfKCProject'.
+Could not find the entity requested. Check the reference is correct and the user has permissions to access the entity.[0m
