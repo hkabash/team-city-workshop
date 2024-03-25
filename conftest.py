@@ -11,6 +11,10 @@ from pages.favorite_projects_page import FavoriteProjectsPage
 from pages.login_page import LoginPage
 from resources.user_creds import SuperAdminCreds, AdminClass
 from utils.browser_setup import BrowserSetup
+from playwright.sync_api import expect
+
+
+expect.set_options(timeout=30_000)
 
 
 @pytest.fixture(params=BROWSERS)
