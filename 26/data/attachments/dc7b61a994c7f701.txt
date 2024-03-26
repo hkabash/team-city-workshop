@@ -1,0 +1,103 @@
+2024-03-26 18:59:07 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_not_created_with_duplicated_name (setup)[0m
+curl -X GET 'http://localhost:8111/authenticationTest.html?csrf' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Authorization: Basic OjQyMTQ3NjI1NDc0NjY1OTc3NzY=' \
+-d ''
+2024-03-26 18:59:07 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_not_created_with_duplicated_name[0m
+curl -X POST 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 74725201-e3bc-4f64-86d0-57321bc387ee' \
+-H 'Cookie: RecentLogin=; TCSESSIONID=3F20547CB2C164850F14B080569FC1F7' \
+-H 'Content-Length: 116' \
+-H 'Authorization: Basic OjQyMTQ3NjI1NDc0NjY1OTc3NzY=' \
+-d '{"parentProject": {"locator": "_Root"}, "name": "be", "id": "RjM0tm8nCoSProject", "copyAllAssociatedSettings": true}' 
+
+2024-03-26 18:59:07 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_not_created_with_duplicated_name[0m
+curl -X POST 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 74725201-e3bc-4f64-86d0-57321bc387ee' \
+-H 'Cookie: TCSESSIONID=3F20547CB2C164850F14B080569FC1F7' \
+-H 'Content-Length: 116' \
+-H 'Authorization: Basic OjQyMTQ3NjI1NDc0NjY1OTc3NzY=' \
+-d '{"parentProject": {"locator": "_Root"}, "name": "be", "id": "edacau9uQweProject", "copyAllAssociatedSettings": true}' 
+
+2024-03-26 18:59:07 INFO 	RESPONSE:
+STATUS_CODE: [31m400[0m
+DATA: [31mResponding with error, status code: 400 (Bad Request).
+Details: jetbrains.buildServer.serverSide.DuplicateProjectNameException: Project with this name already exists: be
+Error occurred while processing this request.[0m
+2024-03-26 18:59:07 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_not_created_with_duplicated_name[0m
+curl -X GET 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 74725201-e3bc-4f64-86d0-57321bc387ee' \
+-H 'Cookie: TCSESSIONID=3F20547CB2C164850F14B080569FC1F7' \
+-H 'Authorization: Basic OjQyMTQ3NjI1NDc0NjY1OTc3NzY=' \
+-d ''
+2024-03-26 18:59:07 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_not_created_with_duplicated_name (teardown)[0m
+curl -X GET 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 74725201-e3bc-4f64-86d0-57321bc387ee' \
+-H 'Cookie: TCSESSIONID=3F20547CB2C164850F14B080569FC1F7' \
+-H 'Authorization: Basic OjQyMTQ3NjI1NDc0NjY1OTc3NzY=' \
+-d '' 
+
+2024-03-26 18:59:07 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_not_created_with_duplicated_name (teardown)[0m
+curl -X DELETE 'http://localhost:8111/app/rest/projects/id:RjM0tm8nCoSProject' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 74725201-e3bc-4f64-86d0-57321bc387ee' \
+-H 'Cookie: TCSESSIONID=3F20547CB2C164850F14B080569FC1F7' \
+-H 'Content-Length: 0' \
+-H 'Authorization: Basic OjQyMTQ3NjI1NDc0NjY1OTc3NzY=' \
+-d '' 
+
+2024-03-26 18:59:07 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_not_created_with_duplicated_name (teardown)[0m
+curl -X GET 'http://localhost:8111/app/rest/projects/RjM0tm8nCoSProject' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 74725201-e3bc-4f64-86d0-57321bc387ee' \
+-H 'Cookie: TCSESSIONID=3F20547CB2C164850F14B080569FC1F7' \
+-H 'Authorization: Basic OjQyMTQ3NjI1NDc0NjY1OTc3NzY=' \
+-d '' 
+
+2024-03-26 18:59:07 INFO 	RESPONSE:
+STATUS_CODE: [31m404[0m
+DATA: [31mResponding with error, status code: 404 (Not Found).
+Details: jetbrains.buildServer.server.rest.errors.NotFoundException: No project found by name or internal/external id 'RjM0tm8nCoSProject'.
+Could not find the entity requested. Check the reference is correct and the user has permissions to access the entity.[0m
+2024-03-26 18:59:07 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_not_created_with_duplicated_name (teardown)[0m
+curl -X GET 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 74725201-e3bc-4f64-86d0-57321bc387ee' \
+-H 'Cookie: TCSESSIONID=3F20547CB2C164850F14B080569FC1F7' \
+-H 'Authorization: Basic OjQyMTQ3NjI1NDc0NjY1OTc3NzY=' \
+-d ''
