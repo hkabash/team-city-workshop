@@ -1,0 +1,63 @@
+2024-03-26 20:35:39 INFO [32mpytest tests/frontend/test_e2e_create_project.py::TestCreateProjectE2E::test_redirect_to_create_project_page_on_new_project_click_from_existing_project[chromium] (setup)[0m
+curl -X GET 'http://localhost:8111/authenticationTest.html?csrf' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Authorization: Basic OjE1NDkyNzI0NzQyNTcyODc2ODk=' \
+-d '' 
+
+2024-03-26 20:35:39 INFO [32mpytest tests/frontend/test_e2e_create_project.py::TestCreateProjectE2E::test_redirect_to_create_project_page_on_new_project_click_from_existing_project[chromium] (setup)[0m
+curl -X POST 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: ec26467a-4e8f-4472-aa10-5cb38a6e2ffa' \
+-H 'Cookie: RecentLogin=; TCSESSIONID=B65DCB89BE6197D9887E72F40F3F7582' \
+-H 'Content-Length: 121' \
+-H 'Authorization: Basic OjE1NDkyNzI0NzQyNTcyODc2ODk=' \
+-d '{"parentProject": {"locator": "_Root"}, "name": "product", "id": "cTeHZAAqDvoProject", "copyAllAssociatedSettings": true}'
+2024-03-26 20:35:54 INFO [32mpytest tests/frontend/test_e2e_create_project.py::TestCreateProjectE2E::test_redirect_to_create_project_page_on_new_project_click_from_existing_project[chromium] (teardown)[0m
+curl -X GET 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: ec26467a-4e8f-4472-aa10-5cb38a6e2ffa' \
+-H 'Cookie: TCSESSIONID=B65DCB89BE6197D9887E72F40F3F7582' \
+-H 'Authorization: Basic OjE1NDkyNzI0NzQyNTcyODc2ODk=' \
+-d '' 
+
+2024-03-26 20:35:54 INFO [32mpytest tests/frontend/test_e2e_create_project.py::TestCreateProjectE2E::test_redirect_to_create_project_page_on_new_project_click_from_existing_project[chromium] (teardown)[0m
+curl -X DELETE 'http://localhost:8111/app/rest/projects/id:cTeHZAAqDvoProject' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: ec26467a-4e8f-4472-aa10-5cb38a6e2ffa' \
+-H 'Cookie: TCSESSIONID=B65DCB89BE6197D9887E72F40F3F7582' \
+-H 'Content-Length: 0' \
+-H 'Authorization: Basic OjE1NDkyNzI0NzQyNTcyODc2ODk=' \
+-d '' 
+
+2024-03-26 20:35:54 INFO [32mpytest tests/frontend/test_e2e_create_project.py::TestCreateProjectE2E::test_redirect_to_create_project_page_on_new_project_click_from_existing_project[chromium] (teardown)[0m
+curl -X GET 'http://localhost:8111/app/rest/projects/cTeHZAAqDvoProject' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: ec26467a-4e8f-4472-aa10-5cb38a6e2ffa' \
+-H 'Cookie: TCSESSIONID=B65DCB89BE6197D9887E72F40F3F7582' \
+-H 'Authorization: Basic OjE1NDkyNzI0NzQyNTcyODc2ODk=' \
+-d '' 
+
+2024-03-26 20:35:54 INFO 	RESPONSE:
+STATUS_CODE: [31m404[0m
+DATA: [31mResponding with error, status code: 404 (Not Found).
+Details: jetbrains.buildServer.server.rest.errors.NotFoundException: No project found by name or internal/external id 'cTeHZAAqDvoProject'.
+Could not find the entity requested. Check the reference is correct and the user has permissions to access the entity.[0m

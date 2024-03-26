@@ -1,0 +1,48 @@
+2024-03-26 20:32:45 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_not_created_without_name (setup)[0m
+curl -X GET 'http://localhost:8111/authenticationTest.html?csrf' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Authorization: Basic OjE1NDkyNzI0NzQyNTcyODc2ODk=' \
+-d ''
+2024-03-26 20:32:45 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_not_created_without_name[0m
+curl -X POST 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: aba8d1ee-5800-45cd-a656-714ac8d2b7c4' \
+-H 'Cookie: RecentLogin=; TCSESSIONID=F07DC4947B0A7EB474C095D861C93575' \
+-H 'Content-Length: 102' \
+-H 'Authorization: Basic OjE1NDkyNzI0NzQyNTcyODc2ODk=' \
+-d '{"parentProject": {"locator": "_Root"}, "id": "D1QGWLryxDuProject", "copyAllAssociatedSettings": true}' 
+
+2024-03-26 20:32:45 INFO 	RESPONSE:
+STATUS_CODE: [31m400[0m
+DATA: [31mResponding with error, status code: 400 (Bad Request).
+Details: jetbrains.buildServer.server.rest.errors.BadRequestException: Project name cannot be empty.
+Invalid request. Please check the request URL and data are correct.[0m
+2024-03-26 20:32:45 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_not_created_without_name[0m
+curl -X GET 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: aba8d1ee-5800-45cd-a656-714ac8d2b7c4' \
+-H 'Cookie: TCSESSIONID=F07DC4947B0A7EB474C095D861C93575' \
+-H 'Authorization: Basic OjE1NDkyNzI0NzQyNTcyODc2ODk=' \
+-d ''
+2024-03-26 20:32:45 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_not_created_without_name (teardown)[0m
+curl -X GET 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: aba8d1ee-5800-45cd-a656-714ac8d2b7c4' \
+-H 'Cookie: TCSESSIONID=F07DC4947B0A7EB474C095D861C93575' \
+-H 'Authorization: Basic OjE1NDkyNzI0NzQyNTcyODc2ODk=' \
+-d ''
