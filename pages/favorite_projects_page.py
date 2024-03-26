@@ -15,9 +15,12 @@ class FavoriteProjectsPage(BasePage):
         self.actions.click_button(self.create_project_selector)
 
     def click_plus_icon_next_to_project(self, project_id):
+        with allure.step("Ожидание появления Empty Project с Plus иконкой"):
+            empty_project_selector = f'[data-project-id="{project_id}"] [class *="Description__minorInfo"]'
+            self.actions.wait_for_selector(empty_project_selector)
         with allure.step(f"Клик на '+' кнопку для проекта c id '{project_id}'"):
-            selector = f'[data-project-id="{project_id}"] [class *="Subproject__addBuildConfiguration"]'
-            self.actions.click_button(selector)
+            plus_icon_selector = f'[data-project-id="{project_id}"] [class *="Subproject__addBuildConfiguration"]'
+            self.actions.click_button(plus_icon_selector)
 
     def click_new_project_from_dropdown(self, project_id):
         with allure.step(f"Для проекта c id '{project_id}' выбрать New project"):
