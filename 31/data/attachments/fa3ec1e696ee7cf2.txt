@@ -1,0 +1,63 @@
+2024-03-26 20:47:42 INFO [32mpytest tests/frontend/test_e2e_create_build_config.py::TestCreateBuildConfigE2E::test_error_on_build_config_creation_with_invalid_id[firefox] (setup)[0m
+curl -X GET 'http://localhost:8111/authenticationTest.html?csrf' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Authorization: Basic OjE0NDQ5ODQ2NjExNDY1NjUzODE=' \
+-d '' 
+
+2024-03-26 20:47:42 INFO [32mpytest tests/frontend/test_e2e_create_build_config.py::TestCreateBuildConfigE2E::test_error_on_build_config_creation_with_invalid_id[firefox] (setup)[0m
+curl -X POST 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: de0dff89-67ae-417a-bea7-57d74287b081' \
+-H 'Cookie: RecentLogin=; TCSESSIONID=83172ADEE37904BF32468B0C82A1FE64' \
+-H 'Content-Length: 123' \
+-H 'Authorization: Basic OjE0NDQ5ODQ2NjExNDY1NjUzODE=' \
+-d '{"parentProject": {"locator": "_Root"}, "name": "determine", "id": "DdCK4CqbabMProject", "copyAllAssociatedSettings": true}'
+2024-03-26 20:47:45 INFO [32mpytest tests/frontend/test_e2e_create_build_config.py::TestCreateBuildConfigE2E::test_error_on_build_config_creation_with_invalid_id[firefox] (teardown)[0m
+curl -X GET 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: de0dff89-67ae-417a-bea7-57d74287b081' \
+-H 'Cookie: TCSESSIONID=83172ADEE37904BF32468B0C82A1FE64' \
+-H 'Authorization: Basic OjE0NDQ5ODQ2NjExNDY1NjUzODE=' \
+-d '' 
+
+2024-03-26 20:47:45 INFO [32mpytest tests/frontend/test_e2e_create_build_config.py::TestCreateBuildConfigE2E::test_error_on_build_config_creation_with_invalid_id[firefox] (teardown)[0m
+curl -X DELETE 'http://localhost:8111/app/rest/projects/id:DdCK4CqbabMProject' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: de0dff89-67ae-417a-bea7-57d74287b081' \
+-H 'Cookie: TCSESSIONID=83172ADEE37904BF32468B0C82A1FE64' \
+-H 'Content-Length: 0' \
+-H 'Authorization: Basic OjE0NDQ5ODQ2NjExNDY1NjUzODE=' \
+-d '' 
+
+2024-03-26 20:47:45 INFO [32mpytest tests/frontend/test_e2e_create_build_config.py::TestCreateBuildConfigE2E::test_error_on_build_config_creation_with_invalid_id[firefox] (teardown)[0m
+curl -X GET 'http://localhost:8111/app/rest/projects/DdCK4CqbabMProject' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: de0dff89-67ae-417a-bea7-57d74287b081' \
+-H 'Cookie: TCSESSIONID=83172ADEE37904BF32468B0C82A1FE64' \
+-H 'Authorization: Basic OjE0NDQ5ODQ2NjExNDY1NjUzODE=' \
+-d '' 
+
+2024-03-26 20:47:45 INFO 	RESPONSE:
+STATUS_CODE: [31m404[0m
+DATA: [31mResponding with error, status code: 404 (Not Found).
+Details: jetbrains.buildServer.server.rest.errors.NotFoundException: No project found by name or internal/external id 'DdCK4CqbabMProject'.
+Could not find the entity requested. Check the reference is correct and the user has permissions to access the entity.[0m
