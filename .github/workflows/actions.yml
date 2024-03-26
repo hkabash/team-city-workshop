@@ -2,9 +2,9 @@ name: Run System Tests
 
 on:
   push:
-    branches: [ "main", "final-version", "Configure-CI" ]
+    branches: [ "main"]
   pull_request:
-    branches: [ "main", "final-version", "Configure-CI" ]
+    branches: [ "main"]
   workflow_dispatch:
 
 jobs:

@@ -65,6 +65,22 @@ To install all needed browsers run in terminal:
 
 `playwright install`
 
-To look into logs from trace.zip file after passing playwright tests:
+#### Playwright trace files
+
+All frontend tests have `trace.zip` file that you can find in the `Teardown` of each test in `page` fixture:
+![attached trace file](images/trace_file_in_allure.png)
+
+To look into logs from trace.zip file:
 1. Open https://trace.playwright.dev/
-2. Move trace.zip file there
+2. Move `trace.zip` file there
+
+
+### CI/CD pipeline for GitHub Actions
+
+Our project uses `GitHub Actions` to automate the execution of system tests, 
+ensuring that each push or pull request to the **main** branch triggers a comprehensive check 
+of the system's functionality.
+
+For more details on each step, please refer to the workflow file located at [actions.yml](.github/workflows/actions.yml)
+
+
