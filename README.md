@@ -78,9 +78,16 @@ To look into logs from trace.zip file:
 ### CI/CD pipeline for GitHub Actions
 
 Our project uses `GitHub Actions` to automate the execution of system tests, 
-ensuring that each push or pull request to the **main** branch triggers a comprehensive check 
+ensuring that each push or pull request to the `main` branch triggers a comprehensive check 
 of the system's functionality.
 
 For more details on each step, please refer to the workflow file located at [actions.yml](.github/workflows/actions.yml)
+
+To see generated `allure report` after running all tests on trigger check action 
+`pages build and deployment` that will go right after the `Run System Tests` action
+![report action](images/Workflow for report.png)
+There you can find the link to `Allure report` and artifact that you can download on your local computer:
+![link to allure report](images/Link to allure report.png)
+
 
 
