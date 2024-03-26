@@ -7,12 +7,12 @@ class FavoriteProjectsPage(BasePage):
     def __init__(self, page):
         super().__init__(page)
         self.page_url = '/favorite/projects'
-        self.create_project_selector = 'a[data-test="create-project"]'
+        self.new_project_selector = 'a[data-hint-container-id="project-create-entity"]'
         self.new_project_dropdown_item_selector = 'a[class *="ring-list-item"]:has-text("New Project...")'
 
-    @allure.step("Клик на кнопку Create project")
-    def click_create_project_button(self):
-        self.actions.click_button(self.create_project_selector)
+    @allure.step("Клик на кнопку New project...")
+    def click_new_project_button(self):
+        self.actions.click_button(self.new_project_selector)
 
     def click_plus_icon_next_to_project(self, project_id):
         with allure.step("Ожидание появления Empty Project с Plus иконкой"):
