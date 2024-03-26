@@ -83,8 +83,8 @@ of the system's functionality.
 
 For more details on each step, please refer to the workflow file located at [actions.yml](.github/workflows/actions.yml)
 
-To see generated `allure report` after running all tests on trigger check action 
-`pages build and deployment` that will go right after the `Run System Tests` action
+To see generated `allure report` after running all tests check action 
+`pages build and deployment` that will go right after the `Run System Tests` action. It deploys allure report to `github pages`:
 ![report action](images/Workflow for report.png)
 There you can find the link to `Allure report` and artifact that you can download on your local computer:
 ![link to allure report](images/Link to allure report.png)
