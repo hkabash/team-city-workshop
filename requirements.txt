@@ -6,3 +6,4 @@ pydantic
 pytest-assume
 pytest-xdist
 allure-pytest
+playwright

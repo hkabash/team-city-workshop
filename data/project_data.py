@@ -6,7 +6,7 @@ from pydantic import BaseModel
 class ParentProjectModel(BaseModel):
     id: str
     name: str
-    description: str
+    description: Optional[str] = None
     href: str
     webUrl: str
 
