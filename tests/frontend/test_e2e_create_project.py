@@ -54,11 +54,11 @@ class TestCreateProjectE2E:
     @allure.feature('Управление проектами')
     @allure.story('Создание проекта')
     @allure.severity(allure.severity_level.NORMAL)
-    @allure.title('Проверка перехода на страницу создания проекта при клике на Create Project на Home Page, '
-                  'если нет проектов')
-    def test_redirect_to_create_project_page_on_new_project_click(self, page, login):
+    @allure.title('Проверка перехода на страницу создания проекта при клике на New Project... на Home Page, '
+                  'если существует хотя бы один проект]')
+    def test_redirect_to_create_project_page_on_new_project_click(self, created_project_data, page, login):
         home_page = FavoriteProjectsPage(page)
-        home_page.click_create_project_button()
+        home_page.click_new_project_button()
 
         create_project_page = CreateProjectPage(page)
         create_project_page.check_project_creation_page_url()
@@ -67,7 +67,7 @@ class TestCreateProjectE2E:
     @allure.feature('Управление проектами')
     @allure.story('Создание проекта')
     @allure.severity(allure.severity_level.NORMAL)
-    @allure.title('Проверка перехода на страницу создания под-проекта при клике на New Project '
+    @allure.title('Проверка перехода на страницу создания под-проекта при клике на New Project.. '
                   'из существующего проекта на Home Page')
     def test_redirect_to_create_project_page_on_new_project_click_from_existing_project(self, created_project_data,
                                                                                         page, login):
