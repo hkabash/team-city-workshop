@@ -1,0 +1,109 @@
+2024-03-27 07:38:16 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_create_with_role[AGENT_MANAGER] (setup)[0m
+curl -X GET 'http://localhost:8111/authenticationTest.html?csrf' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Authorization: Basic OjM2NDk5Mzg4MzUwOTExOTYxMDA=' \
+-d ''
+2024-03-27 07:38:16 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_create_with_role[AGENT_MANAGER][0m
+curl -X POST 'http://localhost:8111/app/rest/users' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: ca33b3e4-2d54-4ce7-93cd-cb8776638340' \
+-H 'Cookie: RecentLogin=; TCSESSIONID=B265562507964DFF1C4774CDCC6BDD27' \
+-H 'Content-Length: 149' \
+-H 'Authorization: Basic OjM2NDk5Mzg4MzUwOTExOTYxMDA=' \
+-d '{"username": "trial", "password": "w1Q28zAdxY9Project", "email": "example@email.com", "roles": {"role": [{"roleId": "AGENT_MANAGER", "scope": "g"}]}}' 
+
+2024-03-27 07:38:16 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_create_with_role[AGENT_MANAGER][0m
+curl -X GET 'http://localhost:8111/authenticationTest.html?csrf' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Authorization: Basic dHJpYWw6dzFRMjh6QWR4WTlQcm9qZWN0' \
+-d '' 
+
+2024-03-27 07:38:16 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_create_with_role[AGENT_MANAGER][0m
+curl -X POST 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: e99dc8df-7fe7-4be3-b7bb-777f54babbdf' \
+-H 'Cookie: RecentLogin=; TCSESSIONID=F9134D1DB384B3317AF37DDB7034210B' \
+-H 'Content-Length: 118' \
+-H 'Authorization: Basic dHJpYWw6dzFRMjh6QWR4WTlQcm9qZWN0' \
+-d '{"parentProject": {"locator": "_Root"}, "name": "seem", "id": "tz7M924f0bsProject", "copyAllAssociatedSettings": true}' 
+
+2024-03-27 07:38:16 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_create_with_role[AGENT_MANAGER][0m
+curl -X GET 'http://localhost:8111/app/rest/projects/tz7M924f0bsProject' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: e99dc8df-7fe7-4be3-b7bb-777f54babbdf' \
+-H 'Cookie: TCSESSIONID=F9134D1DB384B3317AF37DDB7034210B' \
+-H 'Authorization: Basic dHJpYWw6dzFRMjh6QWR4WTlQcm9qZWN0' \
+-d ''
+2024-03-27 07:38:16 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_create_with_role[AGENT_MANAGER] (teardown)[0m
+curl -X DELETE 'http://localhost:8111/app/rest/users/trial' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: ca33b3e4-2d54-4ce7-93cd-cb8776638340' \
+-H 'Cookie: TCSESSIONID=B265562507964DFF1C4774CDCC6BDD27' \
+-H 'Content-Length: 0' \
+-H 'Authorization: Basic OjM2NDk5Mzg4MzUwOTExOTYxMDA=' \
+-d '' 
+
+2024-03-27 07:38:16 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_create_with_role[AGENT_MANAGER] (teardown)[0m
+curl -X GET 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: ca33b3e4-2d54-4ce7-93cd-cb8776638340' \
+-H 'Cookie: TCSESSIONID=B265562507964DFF1C4774CDCC6BDD27' \
+-H 'Authorization: Basic OjM2NDk5Mzg4MzUwOTExOTYxMDA=' \
+-d '' 
+
+2024-03-27 07:38:16 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_create_with_role[AGENT_MANAGER] (teardown)[0m
+curl -X DELETE 'http://localhost:8111/app/rest/projects/id:tz7M924f0bsProject' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: ca33b3e4-2d54-4ce7-93cd-cb8776638340' \
+-H 'Cookie: TCSESSIONID=B265562507964DFF1C4774CDCC6BDD27' \
+-H 'Content-Length: 0' \
+-H 'Authorization: Basic OjM2NDk5Mzg4MzUwOTExOTYxMDA=' \
+-d '' 
+
+2024-03-27 07:38:16 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_create_with_role[AGENT_MANAGER] (teardown)[0m
+curl -X GET 'http://localhost:8111/app/rest/projects/tz7M924f0bsProject' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: ca33b3e4-2d54-4ce7-93cd-cb8776638340' \
+-H 'Cookie: TCSESSIONID=B265562507964DFF1C4774CDCC6BDD27' \
+-H 'Authorization: Basic OjM2NDk5Mzg4MzUwOTExOTYxMDA=' \
+-d '' 
+
+2024-03-27 07:38:16 INFO 	RESPONSE:
+STATUS_CODE: [31m404[0m
+DATA: [31mResponding with error, status code: 404 (Not Found).
+Details: jetbrains.buildServer.server.rest.errors.NotFoundException: No project found by name or internal/external id 'tz7M924f0bsProject'.
+Could not find the entity requested. Check the reference is correct and the user has permissions to access the entity.[0m
