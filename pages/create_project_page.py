@@ -14,8 +14,7 @@ class ParentProjectFragment(BasePage):
 
     def check_parent_project(self, expected_parent_name):
         with allure.step(f"Проверка наличия текста {expected_parent_name} в Parent Project"):
-            self.actions.assert_text_in_element(self.parent_project_dropdown_selector, expected_parent_name,
-                                                timeout=60000)
+            self.actions.assert_text_in_element(self.parent_project_dropdown_selector, expected_parent_name)
 
 
 class CreateProjectManuallyFragment(BasePage):
