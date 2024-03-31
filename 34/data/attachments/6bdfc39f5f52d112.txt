@@ -1,0 +1,19 @@
+2024-03-31 14:06:21 INFO [32mpytest tests/frontend/test_e2e_create_project.py::TestCreateProjectE2E::test_error_on_project_creation_with_invalid_id[webkit] (setup)[0m
+curl -X GET 'http://localhost:8111/authenticationTest.html?csrf' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Authorization: Basic OjY2Nzg2MTIxNjgzMDk5MjQ4MzM=' \
+-d ''
+2024-03-31 14:06:22 INFO [32mpytest tests/frontend/test_e2e_create_project.py::TestCreateProjectE2E::test_error_on_project_creation_with_invalid_id[webkit] (teardown)[0m
+curl -X GET 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: c4e51539-a543-4f5a-ad07-9f51fb15eaab' \
+-H 'Cookie: RecentLogin=; TCSESSIONID=9C85CACAC2EA729B52691634E1ECD666' \
+-H 'Authorization: Basic OjY2Nzg2MTIxNjgzMDk5MjQ4MzM=' \
+-d ''

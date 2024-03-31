@@ -1,0 +1,50 @@
+2024-03-31 14:04:09 INFO [32mpytest tests/frontend/test_e2e_create_project.py::TestCreateProjectE2E::test_redirect_to_create_project_page_on_new_project_click_from_existing_project[webkit] (setup)[0m
+curl -X GET 'http://localhost:8111/authenticationTest.html?csrf' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Authorization: Basic OjY2Nzg2MTIxNjgzMDk5MjQ4MzM=' \
+-d '' 
+
+2024-03-31 14:04:09 INFO [32mpytest tests/frontend/test_e2e_create_project.py::TestCreateProjectE2E::test_redirect_to_create_project_page_on_new_project_click_from_existing_project[webkit] (setup)[0m
+curl -X POST 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: a25a12be-26b9-4d41-8609-dd5575ee8d1a' \
+-H 'Cookie: RecentLogin=; TCSESSIONID=3AC40DEDF553C5773C8EC50CE705E0ED' \
+-H 'Content-Length: 118' \
+-H 'Authorization: Basic OjY2Nzg2MTIxNjgzMDk5MjQ4MzM=' \
+-d '{"parentProject": {"locator": "_Root"}, "name": "have", "id": "ifz6j4jYYh2Project", "copyAllAssociatedSettings": true}'
+2024-03-31 14:05:14 INFO [32mpytest tests/frontend/test_e2e_create_project.py::TestCreateProjectE2E::test_redirect_to_create_project_page_on_new_project_click_from_existing_project[webkit] (teardown)[0m
+curl -X GET 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: a25a12be-26b9-4d41-8609-dd5575ee8d1a' \
+-H 'Cookie: TCSESSIONID=3AC40DEDF553C5773C8EC50CE705E0ED' \
+-H 'Authorization: Basic OjY2Nzg2MTIxNjgzMDk5MjQ4MzM=' \
+-d '' 
+
+2024-03-31 14:05:14 INFO [32mpytest tests/frontend/test_e2e_create_project.py::TestCreateProjectE2E::test_redirect_to_create_project_page_on_new_project_click_from_existing_project[webkit] (teardown)[0m
+curl -X DELETE 'http://localhost:8111/app/rest/projects/id:ifz6j4jYYh2Project' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: a25a12be-26b9-4d41-8609-dd5575ee8d1a' \
+-H 'Cookie: RecentLogin=; TCSESSIONID=099D1A981908A6F8DB6515E55A13417B' \
+-H 'Content-Length: 0' \
+-H 'Authorization: Basic OjY2Nzg2MTIxNjgzMDk5MjQ4MzM=' \
+-d '' 
+
+2024-03-31 14:05:14 INFO 	RESPONSE:
+STATUS_CODE: [31m403[0m
+DATA: [31m403 Forbidden: CSRF Header X-TC-CSRF-Token does not match CSRF session value 14592602-abd7-4146-ac41-c51e9dcef775
+[0m

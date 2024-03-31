@@ -1,0 +1,74 @@
+2024-03-31 13:58:12 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_created_with_name_only (setup)[0m
+curl -X GET 'http://localhost:8111/authenticationTest.html?csrf' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Authorization: Basic OjY2Nzg2MTIxNjgzMDk5MjQ4MzM=' \
+-d ''
+2024-03-31 13:58:12 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_created_with_name_only[0m
+curl -X POST 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 320be790-837f-433b-ae20-45aee042dd50' \
+-H 'Cookie: RecentLogin=; TCSESSIONID=4E77FAD127C6894C8905DDC33B454B20' \
+-H 'Content-Length: 16' \
+-H 'Authorization: Basic OjY2Nzg2MTIxNjgzMDk5MjQ4MzM=' \
+-d '{"name": "tree"}' 
+
+2024-03-31 13:58:12 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_created_with_name_only[0m
+curl -X GET 'http://localhost:8111/app/rest/projects/tree' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 320be790-837f-433b-ae20-45aee042dd50' \
+-H 'Cookie: TCSESSIONID=4E77FAD127C6894C8905DDC33B454B20' \
+-H 'Authorization: Basic OjY2Nzg2MTIxNjgzMDk5MjQ4MzM=' \
+-d ''
+2024-03-31 13:58:12 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_created_with_name_only (teardown)[0m
+curl -X GET 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 320be790-837f-433b-ae20-45aee042dd50' \
+-H 'Cookie: TCSESSIONID=4E77FAD127C6894C8905DDC33B454B20' \
+-H 'Authorization: Basic OjY2Nzg2MTIxNjgzMDk5MjQ4MzM=' \
+-d '' 
+
+2024-03-31 13:58:12 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_created_with_name_only (teardown)[0m
+curl -X DELETE 'http://localhost:8111/app/rest/projects/id:Tree' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 320be790-837f-433b-ae20-45aee042dd50' \
+-H 'Cookie: TCSESSIONID=4E77FAD127C6894C8905DDC33B454B20' \
+-H 'Content-Length: 0' \
+-H 'Authorization: Basic OjY2Nzg2MTIxNjgzMDk5MjQ4MzM=' \
+-d '' 
+
+2024-03-31 13:58:12 INFO [32mpytest tests/backend/test_create_project.py::TestCreateProject::test_project_created_with_name_only (teardown)[0m
+curl -X GET 'http://localhost:8111/app/rest/projects/Tree' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 320be790-837f-433b-ae20-45aee042dd50' \
+-H 'Cookie: TCSESSIONID=4E77FAD127C6894C8905DDC33B454B20' \
+-H 'Authorization: Basic OjY2Nzg2MTIxNjgzMDk5MjQ4MzM=' \
+-d '' 
+
+2024-03-31 13:58:12 INFO 	RESPONSE:
+STATUS_CODE: [31m404[0m
+DATA: [31mResponding with error, status code: 404 (Not Found).
+Details: jetbrains.buildServer.server.rest.errors.NotFoundException: No project found by name or internal/external id 'Tree'.
+Could not find the entity requested. Check the reference is correct and the user has permissions to access the entity.[0m
