@@ -1,0 +1,87 @@
+2024-04-05 14:50:48 INFO [32mpytest tests/backend/test_create_build_config.py::TestBuildConfig::test_build_config_create (setup)[0m
+curl -X GET 'http://localhost:8111/authenticationTest.html?csrf' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: */*' \
+-H 'Connection: keep-alive' \
+-H 'Authorization: Basic OjgzMjU5MDY3Nzc2MDkxMjgxOTg=' \
+-d '' 
+
+2024-04-05 14:50:48 INFO [32mpytest tests/backend/test_create_build_config.py::TestBuildConfig::test_build_config_create (setup)[0m
+curl -X POST 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 07d9be20-6381-4409-bbbe-815b12c9c017' \
+-H 'Cookie: RecentLogin=; TCSESSIONID=94F89F33D45C2BE05BA2DE08068FC078' \
+-H 'Content-Length: 118' \
+-H 'Authorization: Basic OjgzMjU5MDY3Nzc2MDkxMjgxOTg=' \
+-d '{"parentProject": {"locator": "_Root"}, "name": "both", "id": "Hk7Ln7hFSvJProject", "copyAllAssociatedSettings": true}'
+2024-04-05 14:50:49 INFO [32mpytest tests/backend/test_create_build_config.py::TestBuildConfig::test_build_config_create[0m
+curl -X POST 'http://localhost:8111/app/rest/buildTypes' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 07d9be20-6381-4409-bbbe-815b12c9c017' \
+-H 'Cookie: TCSESSIONID=94F89F33D45C2BE05BA2DE08068FC078' \
+-H 'Content-Length: 349' \
+-H 'Authorization: Basic OjgzMjU5MDY3Nzc2MDkxMjgxOTg=' \
+-d '{"id": "j4u1wIYKBIgBuild", "name": "much", "project": {"id": "Hk7Ln7hFSvJProject"}, "steps": {"step": [{"name": "myCommandLineStep", "type": "simpleRunner", "properties": {"property": [{"name": "script.content", "value": "echo 'Hello World!'"}, {"name": "teamcity.step.mode", "value": "default"}, {"name": "use.custom.script", "value": "true"}]}}]}}' 
+
+2024-04-05 14:50:49 INFO [32mpytest tests/backend/test_create_build_config.py::TestBuildConfig::test_build_config_create[0m
+curl -X GET 'http://localhost:8111/app/rest/buildTypes/j4u1wIYKBIgBuild' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 07d9be20-6381-4409-bbbe-815b12c9c017' \
+-H 'Cookie: TCSESSIONID=94F89F33D45C2BE05BA2DE08068FC078' \
+-H 'Authorization: Basic OjgzMjU5MDY3Nzc2MDkxMjgxOTg=' \
+-d ''
+2024-04-05 14:50:49 INFO [32mpytest tests/backend/test_create_build_config.py::TestBuildConfig::test_build_config_create (teardown)[0m
+curl -X GET 'http://localhost:8111/app/rest/projects' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 07d9be20-6381-4409-bbbe-815b12c9c017' \
+-H 'Cookie: TCSESSIONID=94F89F33D45C2BE05BA2DE08068FC078' \
+-H 'Authorization: Basic OjgzMjU5MDY3Nzc2MDkxMjgxOTg=' \
+-d '' 
+
+2024-04-05 14:50:49 INFO [32mpytest tests/backend/test_create_build_config.py::TestBuildConfig::test_build_config_create (teardown)[0m
+curl -X DELETE 'http://localhost:8111/app/rest/projects/id:Hk7Ln7hFSvJProject' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 07d9be20-6381-4409-bbbe-815b12c9c017' \
+-H 'Cookie: TCSESSIONID=94F89F33D45C2BE05BA2DE08068FC078' \
+-H 'Content-Length: 0' \
+-H 'Authorization: Basic OjgzMjU5MDY3Nzc2MDkxMjgxOTg=' \
+-d '' 
+
+2024-04-05 14:50:49 INFO [32mpytest tests/backend/test_create_build_config.py::TestBuildConfig::test_build_config_create (teardown)[0m
+curl -X GET 'http://localhost:8111/app/rest/projects/Hk7Ln7hFSvJProject' \
+-H 'User-Agent: python-requests/2.25.1' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'X-TC-CSRF-Token: 07d9be20-6381-4409-bbbe-815b12c9c017' \
+-H 'Cookie: TCSESSIONID=94F89F33D45C2BE05BA2DE08068FC078' \
+-H 'Authorization: Basic OjgzMjU5MDY3Nzc2MDkxMjgxOTg=' \
+-d '' 
+
+2024-04-05 14:50:49 INFO 	RESPONSE:
+STATUS_CODE: [31m404[0m
+DATA: [31mResponding with error, status code: 404 (Not Found).
+Details: jetbrains.buildServer.server.rest.errors.NotFoundException: No project found by name or internal/external id 'Hk7Ln7hFSvJProject'.
+Could not find the entity requested. Check the reference is correct and the user has permissions to access the entity.[0m
