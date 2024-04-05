@@ -80,7 +80,7 @@ class TestCreateProjectE2E:
         create_url = create_project_page.page_url.replace("_Root", parent_project_id)
         create_project_page.check_project_creation_page_url(create_url)
         create_project_page.check_create_project_manually_page_elements()
-        create_project_page.parent_project_fragment.check_parent_project(parent_project_name)
+        create_project_page.res_navigation_fragment.check_last_parent_project_link(parent_project_name)
 
     @allure.feature('Управление проектами')
     @allure.story('Создание проекта')
