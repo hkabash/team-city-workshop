@@ -11,6 +11,10 @@ from pages.favorite_projects_page import FavoriteProjectsPage
 from pages.login_page import LoginPage
 from resources.user_creds import SuperAdminCreds, AdminClass
 from utils.browser_setup import BrowserSetup
+from playwright.sync_api import expect
+
+
+expect.set_options(timeout=30_000)
 
 
 @pytest.fixture(params=BROWSERS)
@@ -22,9 +26,17 @@ def page(request):
 
 
 @pytest.fixture
+def browser_for_setup(request):
+    playwright, browser, context, page = BrowserSetup.setup()
+    yield page
+    test_name = request.node.name
+    BrowserSetup.teardown(context, browser, playwright, test_name)
+
+
+@pytest.fixture
 def login(page):
     login_page = LoginPage(page)
-    login_page.login(username=AdminClass.USERNAME, password=AdminClass.PASSWORD)
+    login_page.login(username="admin", password="admin")
     home_page = FavoriteProjectsPage(page)
     home_page.check_favorite_projects_url()
     home_page.header.check_user_avatar_visible()

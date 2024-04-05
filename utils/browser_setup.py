@@ -1,4 +1,5 @@
-from playwright.sync_api import sync_playwright
+import allure
+from playwright.sync_api import sync_playwright, expect
 import os
 from dotenv import load_dotenv
 
@@ -20,8 +21,13 @@ class BrowserSetup:
         return playwright, browser, context, page
 
     @classmethod
+    @allure.step("Teardown: closing browser, stopping playwright, saving trace.zip file")
     def teardown(cls, context, browser, playwright, test_name):
         trace_file = f'result/{test_name}_trace.zip'
         context.tracing.stop(path=trace_file)
         browser.close()
         playwright.stop()
+        # Добавляем трассировку как вложение в Allure
+        with allure.step("Generating trace.zip file"):
+            with open(trace_file, 'rb') as f:
+                allure.attach(f.read(), name=test_name + "_trace.zip", attachment_type='application/zip')

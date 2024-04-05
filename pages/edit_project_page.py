@@ -19,5 +19,5 @@ class EditProjectPage(BasePage):
         if parent_project is None:
             self.actions.assert_text_in_element(self.project_created_message_selector, self.project_created_message_text)
         else:
-            message = self.project_created_message_text.replace(project_name, f"{parent_project} / {project_name}")
+            message = self.project_created_message_text.replace(project_name, f"{parent_project} / {project_name}", 1)
             self.actions.assert_text_in_element(self.project_created_message_selector, message)
