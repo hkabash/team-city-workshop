@@ -3,6 +3,16 @@ from pages.base_page import BasePage
 from pages.components.menu_list_create import MenuListCreateFragment
 
 
+class ResNavigationFragment(BasePage):
+    def __init__(self, page):
+        super().__init__(page)
+        self.last_parent_project_link = '[class="last project"]'
+
+    def check_last_parent_project_link(self, expected_parent_name):
+        with allure.step(f"Проверка наличия текста {expected_parent_name} в Last Parent Project Link"):
+            self.actions.assert_text_in_element(self.last_parent_project_link, expected_parent_name)
+
+
 class ParentProjectFragment(BasePage):
     def __init__(self, page):
         super().__init__(page)
@@ -87,6 +97,7 @@ class CreateProjectPage(BasePage):
         self.page_url = ('/admin/createObjectMenu.html?projectId=_Root&showMode=createProjectMenu'
                          '&cameFromUrl=http%3A%2F%2Flocalhost%3A8111%2Ffavorite%2Fprojects')
         self.menu_list_create = MenuListCreateFragment(self.actions)
+        self.res_navigation_fragment = ResNavigationFragment(page)
         self.parent_project_fragment = ParentProjectFragment(page)
         self.create_manually_form = CreateProjectManuallyFragment(page)
         self.create_from_url_form = CreateProjectFromUrlFragment(page)
