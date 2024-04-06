@@ -1,3 +1,5 @@
+from swagger_coverage_py.reporter import CoverageReporter
+
 from api.api_manager import ApiManager
 import pytest
 import requests
@@ -12,9 +14,20 @@ from pages.login_page import LoginPage
 from resources.user_creds import SuperAdminCreds, AdminClass
 from utils.browser_setup import BrowserSetup
 from playwright.sync_api import expect
+from enums.host import BASE_URL
 
 
 expect.set_options(timeout=30_000)
+
+
+@pytest.fixture(scope="session", autouse=True)
+def setup_swagger_coverage():
+    reporter = CoverageReporter(api_name="teamcityapi", host=BASE_URL)
+    reporter.cleanup_input_files()
+    reporter.setup("/app/rest/swagger.json")
+
+    yield
+    reporter.generate_report()
 
 
 @pytest.fixture(params=BROWSERS)

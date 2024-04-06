@@ -1,0 +1,29 @@
+{
+  "rules": {
+    "status": {
+      "enable": true,
+      "ignore": [
+        "500"
+      ],
+      "filter": []
+    },
+    "paths": {
+            "enable": true,
+            "ignore": [
+                "/authenticationTest.html?csrf"
+            ]
+        },
+    "only-declared-status": {
+      "enable": false
+    },
+    "exclude-deprecated" : {
+      "enable" : true
+    }
+  },
+    "writers": {
+      "html": {
+        "locale": "en",
+        "filename":"swagger-coverage-report-teamcityapi.html"
+      }
+  }
+}
