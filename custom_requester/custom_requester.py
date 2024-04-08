@@ -46,23 +46,28 @@ class CustomRequester:
         """
         # url = f"{self.base_url}{endpoint}"
 
-        # Prepare kwargs for CoverageListener, similar to what you would pass to requests.request
-        request_kwargs = {
-            "json": data,
-            # Include any other kwargs you would normally pass to requests.request
-        }
+        if endpoint == "/authenticationTest.html?csrf":
+            url = f"{self.base_url}{endpoint}"
+            print(f"url is: {url}")
+            response = self.session.request(method, url, json=data)
+        else:
+            print(f"going to swagger with endpoint: {endpoint}")
+            # Prepare kwargs for CoverageListener, similar to what you would pass to requests.request
+            request_kwargs = {
+                "json": data,
+                # Include any other kwargs you would normally pass to requests.request
+            }
 
-        # Instantiate CoverageListener, which will make the request and track it for Swagger coverage
-        coverage_listener = CustomCoverageListener(
-            session=self.session,
-            method=method,
-            base_url=self.base_url,
-            endpoint=endpoint,
-            uri_params={},
-            **request_kwargs,
-        )
-
-        response = coverage_listener.response
+            # Instantiate CoverageListener, which will make the request and track it for Swagger coverage
+            coverage_listener = CustomCoverageListener(
+                session=self.session,
+                method=method,
+                base_url=self.base_url,
+                endpoint=endpoint,
+                uri_params={},
+                **request_kwargs,
+            )
+            response = coverage_listener.response
 
         # response = self.session.request(method, url, json=data)
         if need_logging:
