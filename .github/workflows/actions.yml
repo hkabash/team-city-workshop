@@ -92,7 +92,7 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest -v --alluredir=result tests/backend --ignore=tests/frontend/test_setup.py
+          pytest -v --alluredir=result --ignore=tests/frontend/test_setup.py
 
       - name: Get Allure history
         uses: actions/checkout@v3
