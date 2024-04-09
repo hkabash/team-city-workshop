@@ -20,15 +20,6 @@ from enums.host import BASE_URL
 expect.set_options(timeout=30_000)
 
 
-# @pytest.fixture(scope="session", autouse=True)
-# def setup_swagger_coverage():
-#     reporter = CoverageReporter(api_name="teamcityapi", host=BASE_URL)
-#     reporter.cleanup_input_files()
-#     reporter.setup("/app/rest/swagger.json")
-#     yield
-#     reporter.generate_report()
-
-
 @pytest.fixture(scope="session", autouse=True)
 def setup_swagger_coverage(request):
     # Получаем все тесты с маркировкой no_swagger_coverage
