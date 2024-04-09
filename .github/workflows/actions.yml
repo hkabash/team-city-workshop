@@ -92,7 +92,7 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest -v --alluredir=result --ignore=tests/frontend/test_setup.py
+          pytest -v --alluredir=result tests/backend --ignore=tests/frontend/test_setup.py
 
       - name: Get Allure history
         uses: actions/checkout@v3
@@ -108,6 +108,12 @@ jobs:
         with:
           allure_results: result
           allure_history: allure-history
+
+      - name: Copy Swagger Coverage Report for GitHub Pages
+        run: |
+          mkdir -p gh-pages/swagger-coverage
+          cp swagger-coverage-report-teamcityapi.html gh-pages/swagger-coverage/index.html
+        if: always()
 
       - name: Deploy report to Github Pages
         if: always()

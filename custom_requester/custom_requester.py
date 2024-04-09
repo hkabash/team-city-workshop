@@ -44,14 +44,11 @@ class CustomRequester:
         :param need_logging: Передача флага для логгирования. По умолчанию = True
         :return: Возвращает объект ответа
         """
-        # url = f"{self.base_url}{endpoint}"
 
         if endpoint == "/authenticationTest.html?csrf":
             url = f"{self.base_url}{endpoint}"
-            print(f"url is: {url}")
             response = self.session.request(method, url, json=data)
         else:
-            print(f"going to swagger with endpoint: {endpoint}")
             # Prepare kwargs for CoverageListener, similar to what you would pass to requests.request
             request_kwargs = {
                 "json": data,
@@ -69,7 +66,6 @@ class CustomRequester:
             )
             response = coverage_listener.response
 
-        # response = self.session.request(method, url, json=data)
         if need_logging:
             self.log_request_and_response(response)
         if response.status_code != expected_status:
