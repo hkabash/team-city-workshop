@@ -1,3 +1,5 @@
+from swagger_coverage_py.reporter import CoverageReporter
+
 from api.api_manager import ApiManager
 import pytest
 import requests
@@ -12,9 +14,27 @@ from pages.login_page import LoginPage
 from resources.user_creds import SuperAdminCreds, AdminClass
 from utils.browser_setup import BrowserSetup
 from playwright.sync_api import expect
+from enums.host import BASE_URL
 
 
 expect.set_options(timeout=30_000)
+
+
+@pytest.fixture(scope="session", autouse=True)
+def setup_swagger_coverage(request):
+    # Получаем все тесты с маркировкой no_swagger_coverage
+    marked_items = [item for item in request.session.items if item.get_closest_marker('no_swagger_coverage')]
+
+    # Проверяем, есть ли запланированные к выполнению тесты с этой маркировкой
+    if not marked_items:
+        reporter = CoverageReporter(api_name="teamcityapi", host=BASE_URL)
+        reporter.cleanup_input_files()
+        reporter.setup("/app/rest/swagger.json")
+        yield
+        reporter.generate_report()
+    else:
+        # Пропускаем выполнение фикстуры, если есть тест с маркировкой no_swagger_coverage
+        yield
 
 
 @pytest.fixture(params=BROWSERS)

@@ -3,6 +3,28 @@ import os
 from http import HTTPStatus
 from enums.host import BASE_URL
 
+from swagger_coverage_py.configs import IS_DISABLED
+from swagger_coverage_py.request_schema_handler import RequestSchemaHandler
+from swagger_coverage_py.uri import URI
+
+
+class CustomCoverageListener:
+    def __init__(
+            self,
+            session,
+            method,
+            base_url,
+            endpoint,
+            uri_params,
+            **kwargs
+    ):
+        self.__uri = URI(base_url, "", endpoint, **uri_params)
+        self.response = session.request(method, self.__uri.full, **kwargs)
+        if not IS_DISABLED:
+            RequestSchemaHandler(
+                self.__uri, method, self.response, kwargs
+            ).write_schema()
+
 
 class CustomRequester:
     base_headers = {"Content-Type": "application/json", "Accept": "application/json"}
@@ -22,8 +44,28 @@ class CustomRequester:
         :param need_logging: Передача флага для логгирования. По умолчанию = True
         :return: Возвращает объект ответа
         """
-        url = f"{self.base_url}{endpoint}"
-        response = self.session.request(method, url, json=data)
+
+        if endpoint == "/authenticationTest.html?csrf":
+            url = f"{self.base_url}{endpoint}"
+            response = self.session.request(method, url, json=data)
+        else:
+            # Prepare kwargs for CoverageListener, similar to what you would pass to requests.request
+            request_kwargs = {
+                "json": data,
+                # Include any other kwargs you would normally pass to requests.request
+            }
+
+            # Instantiate CoverageListener, which will make the request and track it for Swagger coverage
+            coverage_listener = CustomCoverageListener(
+                session=self.session,
+                method=method,
+                base_url=self.base_url,
+                endpoint=endpoint,
+                uri_params={},
+                **request_kwargs,
+            )
+            response = coverage_listener.response
+
         if need_logging:
             self.log_request_and_response(response)
         if response.status_code != expected_status:

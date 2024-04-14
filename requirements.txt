@@ -7,3 +7,4 @@ pytest-assume
 pytest-xdist
 allure-pytest
 playwright
+swagger-coverage

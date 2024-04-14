@@ -1,4 +1,5 @@
 import allure
+import pytest
 
 from pages.agents_page import AgentsPage
 from pages.favorite_projects_page import FavoriteProjectsPage
@@ -6,6 +7,7 @@ from pages.setup_page import SetupPage
 
 
 @allure.title("Сетап Teamcity перед всеми тестами")
+@pytest.mark.no_swagger_coverage
 def test_setup(browser_for_setup):
     with allure.step("Сетап тимсити: создание БД, принятие пользовательского соглашения"):
         setup_page = SetupPage(browser_for_setup)

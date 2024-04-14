@@ -10,7 +10,6 @@ on:
 jobs:
   run-tests:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -95,7 +94,7 @@ jobs:
           pytest -v --alluredir=result --ignore=tests/frontend/test_setup.py
 
       - name: Get Allure history
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         if: always()
         continue-on-error: true
         with:
@@ -103,15 +102,22 @@ jobs:
           path: gh-pages
 
       - name: Allure Report action from marketplace
-        uses: simple-elf/allure-report-action@v1.7
+        uses: simple-elf/allure-report-action@v1.9
         if: always()
         with:
           allure_results: result
           allure_history: allure-history
+          keep-reports: 3
+
+      - name: Copy Swagger Coverage Report for GitHub Pages
+        run: |
+          mkdir -p gh-pages/swagger-coverage
+          cp swagger-coverage-report-teamcityapi.html gh-pages/swagger-coverage/index.html
+        if: always()
 
       - name: Deploy report to Github Pages
         if: always()
-        uses: peaceiris/actions-gh-pages@v2
+        uses: peaceiris/actions-gh-pages@v3
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
